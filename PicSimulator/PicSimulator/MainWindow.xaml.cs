@@ -10,6 +10,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using System.Threading;
+using PicSimulator.NewFolder;
+using PicSimulator.ColumnsOrder;
+using System.Collections.ObjectModel;
 
 namespace PicSimulator
 {
@@ -21,6 +26,7 @@ namespace PicSimulator
         public MainWindow()
         {
             InitializeComponent();
+            Storage storage = new Storage();
         }
 
         #region Menu
@@ -32,13 +38,18 @@ namespace PicSimulator
             openFileDialog.Multiselect = false;   // to select only one file
 
             if(openFileDialog.ShowDialog() == true)
-            {
-                string selectedFileName = openFileDialog.FileName;
-
+            {   // load file
+                string fileName = openFileDialog.FileName;
+                ProgrammFile programmFile = new ProgrammFile(fileName);
+                ProgrammDataViewer.ItemsSource = programmFile.ColumnData;
+                ProgrammDataViewer.Items.Refresh();
             }
         }
+
+        #endregion
+
+        public ObservableCollection<Columns> Columns { get;  set; } = new ObservableCollection<Columns>();
     }
-    #endregion
 
 
 }

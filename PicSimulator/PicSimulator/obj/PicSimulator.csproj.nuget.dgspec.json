@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\PicSimulator\\PicSimulator\\PicSimulator.csproj": {}
+    "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\PicSimulator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\PicSimulator\\PicSimulator\\PicSimulator.csproj": {
+    "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\PicSimulator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\PicSimulator\\PicSimulator\\PicSimulator.csproj",
+        "projectUniqueName": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\PicSimulator.csproj",
         "projectName": "PicSimulator",
-        "projectPath": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\PicSimulator\\PicSimulator\\PicSimulator.csproj",
+        "projectPath": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\PicSimulator.csproj",
         "packagesPath": "C:\\Users\\tanja\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\PicSimulator\\PicSimulator\\obj\\",
+        "outputPath": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tanja\\AppData\\Roaming\\NuGet\\NuGet.Config",

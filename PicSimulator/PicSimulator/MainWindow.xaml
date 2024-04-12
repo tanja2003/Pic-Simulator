@@ -4,16 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PicSimulator"
+        xmlns:columns="clr-namespace:PicSimulator.ColumnsOrder"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-    <!--Navigation-->
-        <DockPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--Navigation-->
+        <DockPanel  Grid.Row="0" Grid.ColumnSpan="3">
             <Menu>
                 <MenuItem Header="Datei">
                     <MenuItem Header="Laden" Click="MenuItem_Click"></MenuItem>
                 </MenuItem>
             </Menu>
         </DockPanel>
+        <Grid Grid.Row="2" Grid.Column="0">
+            
+            <ListView x:Name="ProgrammDataViewer" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Line}">
+                            
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+                
+            </ListView>
+        </Grid>
     </Grid>
+    
 </Window>
