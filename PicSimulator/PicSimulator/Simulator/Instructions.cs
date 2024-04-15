@@ -18,11 +18,11 @@ namespace PicSimulator.Simulator
 
 
 
-        // 
+        #region Byte-oriented operations 
         // 00 0000 1fff ffff
-        public void Movewf(int cmd)
+        public bool Movewf(int cmd)
         {
-
+            return false;
         }
 
         // 00 0001 0fff ffff
@@ -56,16 +56,75 @@ namespace PicSimulator.Simulator
         // 00 0100 dfff ffff
         public bool Iorwf(int cmd) 
         { 
-        }
-
-
-        // 00 0101 dfff ffff
-        public bool Comf (int cmd)
-        {
             return false;
         }
 
         // 00 0101 dfff ffff
-        public bool 
+        public bool  Andwf(int cmd)
+        {
+            return false;
+        }
+
+        // 00 0110 dfff ffff
+        public bool Xorwf(int cmd)
+        {
+            return false;
+        }
+
+        // 00 0111 dfff ffff
+        public bool Addwf(int cmd)
+        {
+            return false;
+        }
+
+        // 00 1000 dfff ffff
+        public bool Movf(int cmd)
+        {
+            return false;
+        }
+
+        // 00 1001 dfff ffff
+        public bool Comf(int cmd)
+        {
+            return false;
+        }
+
+        // 00 1010 dfff ffff
+        public bool Incf(int cmd)
+        {
+            return false;
+        }
+
+        // 00 1011 dfff ffff
+        public bool Decfsz(int cmd)
+        {
+            return false;
+        }
+
+        // 00 1100 dfff ffff
+        public bool Rrf(int cmd)
+        {
+            return false;
+        }
+
+        // 00 1101 dfff ffff
+        public bool Rlf(int cmd)
+        {
+            return false;
+        }
+
+        // 00 1110 dfff ffff
+        public bool Swapf(int cmd)
+        {
+            return false;
+        }
+
+        // 00 1111 dfff ffff
+        public bool Incfsz(int cmd)
+        {
+            return false;
+        }
+
+        #endregion
     }
 }

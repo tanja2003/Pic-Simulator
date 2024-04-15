@@ -34,6 +34,10 @@ namespace PicSimulator
         }
 
         #region Menu
+
+        /// <summary>
+        /// Select Programm and store the data into the programmMemory
+        /// </summary>
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             var openFileDialog = new OpenFileDialog();  // to select a file for the user

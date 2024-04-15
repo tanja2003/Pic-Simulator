@@ -21,6 +21,9 @@ namespace PicSimulator.Simulator
             loadProgrammText(filename);
         }
 
+        /// <summary>
+        /// streams every line in the file and store the opcode into the programmMemory
+        /// </summary>
         private void loadProgrammText(string filename)
         {
             try
