@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
-            <RowDefinition/>
+            <RowDefinition Height="100"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <!--Navigation-->
@@ -26,6 +26,23 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="StartButton" Content="Start" Click="StartButton_Click" Grid.Row="0"/>
+            <Button Content="Stop" Grid.Row="1"/>
+            <Button Content="Reset" Grid.Row="2"/>
+            <Button Content="Next" Grid.Row="3"/>
+            <Button Content="Continue" Grid.Row="4"/>
+        </Grid>
+
+        <!--Programm Data as Listviewer-->
         <Grid Grid.Row="2" Grid.Column="0">
             
             <ListView x:Name="ProgrammDataViewer" >

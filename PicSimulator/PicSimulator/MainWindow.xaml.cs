@@ -12,7 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Threading;
-using PicSimulator.NewFolder;
+using PicSimulator.Simulator;
 using PicSimulator.ColumnsOrder;
 using System.Collections.ObjectModel;
 
@@ -27,6 +27,10 @@ namespace PicSimulator
         {
             InitializeComponent();
             Storage storage = new Storage();
+            Flags flags = new Flags();
+            flags.SetStatusZ(false);
+            //Simulation simulation = new Simulation();
+
         }
 
         #region Menu
@@ -34,7 +38,7 @@ namespace PicSimulator
         {
             var openFileDialog = new OpenFileDialog();  // to select a file for the user
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); // Standardverzeichnis
-            openFileDialog.Filter = "LST files (*.LST)|*.LST|Text files (*.txt)|*.txt|All Files (*.*)|*.*";  // onlz lst and txt files
+            openFileDialog.Filter = "LST files (*.LST)|*.LST|Text files (*.txt)|*.txt|All Files (*.*)|*.*";  // only lst and txt files
             openFileDialog.Multiselect = false;   // to select only one file
 
             if(openFileDialog.ShowDialog() == true)
@@ -49,6 +53,14 @@ namespace PicSimulator
         #endregion
 
         public ObservableCollection<Columns> Columns { get;  set; } = new ObservableCollection<Columns>();
+
+        private void StartButton_Click(object sender, RoutedEventArgs e)
+        {
+            // check if File is loadad
+            Simulation simulation = new Simulation();
+            simulation.selectCommand();
+
+        }
     }
 
 
