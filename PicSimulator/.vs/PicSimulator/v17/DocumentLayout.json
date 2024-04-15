@@ -3,31 +3,37 @@
   "WorkspaceRootPath": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\tanja\\onedrive\\dokumente\\dhbw\\4_semester\\pic\\pic-simulator\\picsimulator\\picsimulator\\simulator\\simulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\simulator\\simulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\tanja\\onedrive\\dokumente\\dhbw\\4_semester\\pic\\pic-simulator\\picsimulator\\picsimulator\\simulator\\instructions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\simulator\\instructions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\tanja\\onedrive\\dokumente\\dhbw\\4_semester\\pic\\pic-simulator\\picsimulator\\picsimulator\\simulator\\simulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\simulator\\simulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\tanja\\onedrive\\dokumente\\dhbw\\4_semester\\pic\\pic-simulator\\picsimulator\\picsimulator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\tanja\\onedrive\\dokumente\\dhbw\\4_semester\\pic\\pic-simulator\\picsimulator\\picsimulator\\simulator\\programmfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\simulator\\programmfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Testprogramme\\TPicSim3.LST||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Testprogramme\\TPicSim2.LST||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\tanja\\onedrive\\dokumente\\dhbw\\4_semester\\pic\\pic-simulator\\picsimulator\\picsimulator\\simulator\\storage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\simulator\\storage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\tanja\\onedrive\\dokumente\\dhbw\\4_semester\\pic\\pic-simulator\\picsimulator\\picsimulator\\datamemory\\memorystructure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\datamemory\\memorystructure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Testprogramme\\TPicSim1.LST||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Testprogramme\\TPicSim1.LST||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\tanja\\onedrive\\dokumente\\dhbw\\4_semester\\pic\\pic-simulator\\picsimulator\\picsimulator\\simulator\\programmfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\simulator\\programmfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\tanja\\onedrive\\dokumente\\dhbw\\4_semester\\pic\\pic-simulator\\picsimulator\\picsimulator\\datamemory\\memorystructure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\datamemory\\memorystructure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\tanja\\onedrive\\dokumente\\dhbw\\4_semester\\pic\\pic-simulator\\picsimulator\\picsimulator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -57,41 +63,63 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "TPicSim3.LST",
+              "DocumentMoniker": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Testprogramme\\TPicSim3.LST",
+              "RelativeDocumentMoniker": "..\\..\\Testprogramme\\TPicSim3.LST",
+              "ToolTip": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Testprogramme\\TPicSim3.LST",
+              "RelativeToolTip": "..\\..\\Testprogramme\\TPicSim3.LST",
+              "ViewState": "AQIAABIAAAAAAAAAAAAqwCUAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-04-15T19:37:04.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TPicSim2.LST",
+              "DocumentMoniker": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Testprogramme\\TPicSim2.LST",
+              "RelativeDocumentMoniker": "..\\..\\Testprogramme\\TPicSim2.LST",
+              "ToolTip": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Testprogramme\\TPicSim2.LST",
+              "RelativeToolTip": "..\\..\\Testprogramme\\TPicSim2.LST",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-04-15T19:36:56.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Instructions.cs",
               "DocumentMoniker": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Instructions.cs",
               "RelativeDocumentMoniker": "PicSimulator\\Simulator\\Instructions.cs",
               "ToolTip": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Instructions.cs",
               "RelativeToolTip": "PicSimulator\\Simulator\\Instructions.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAuwBgAAAAZAAAA",
+              "ViewState": "AQIAAEMAAAAAAAAAAAAUwFsAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-12T07:42:11.568Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Simulation.cs",
               "DocumentMoniker": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Simulation.cs",
               "RelativeDocumentMoniker": "PicSimulator\\Simulator\\Simulation.cs",
               "ToolTip": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Simulation.cs",
               "RelativeToolTip": "PicSimulator\\Simulator\\Simulation.cs",
-              "ViewState": "AQIAAEUAAAAAAAAAAAASwGAAAAAhAAAA",
+              "ViewState": "AQIAAEYAAAAAAAAAAAAAAEYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-14T07:35:19.952Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "ProgrammFile.cs",
               "DocumentMoniker": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\ProgrammFile.cs",
               "RelativeDocumentMoniker": "PicSimulator\\Simulator\\ProgrammFile.cs",
@@ -99,25 +127,24 @@
               "RelativeToolTip": "PicSimulator\\Simulator\\ProgrammFile.cs",
               "ViewState": "AQIAABAAAAAAAAAAAAAAABkAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-14T06:38:02.633Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-14T06:38:02.633Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Storage.cs",
               "DocumentMoniker": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Storage.cs",
               "RelativeDocumentMoniker": "PicSimulator\\Simulator\\Storage.cs",
               "ToolTip": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Storage.cs",
               "RelativeToolTip": "PicSimulator\\Simulator\\Storage.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAswDcAAAAIAAAA",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAkwBUAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-14T06:38:11.411Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "Item.cs",
               "DocumentMoniker": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Item.cs",
               "RelativeDocumentMoniker": "PicSimulator\\Simulator\\Item.cs",
@@ -129,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\MainWindow.xaml",
               "RelativeDocumentMoniker": "PicSimulator\\MainWindow.xaml",
@@ -140,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "MemoryStructure.cs",
               "DocumentMoniker": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\DataMemory\\MemoryStructure.cs",
               "RelativeDocumentMoniker": "PicSimulator\\DataMemory\\MemoryStructure.cs",
@@ -160,7 +187,8 @@
               "RelativeToolTip": "..\\..\\Testprogramme\\TPicSim1.LST",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-04-14T06:45:48.471Z"
+              "WhenOpened": "2024-04-14T06:45:48.471Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -170,14 +198,14 @@
               "RelativeDocumentMoniker": "PicSimulator\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\MainWindow.xaml.cs",
               "RelativeToolTip": "PicSimulator\\MainWindow.xaml.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAIwEAAAAAMAAAA",
+              "ViewState": "AQIAADIAAAAAAAAAAAAawEAAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-12T07:27:08.982Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Flags.cs",
               "DocumentMoniker": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Flags.cs",
               "RelativeDocumentMoniker": "PicSimulator\\Simulator\\Flags.cs",
@@ -189,7 +217,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Columns.cs",
               "DocumentMoniker": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\ColumnsOrder\\Columns.cs",
               "RelativeDocumentMoniker": "PicSimulator\\ColumnsOrder\\Columns.cs",

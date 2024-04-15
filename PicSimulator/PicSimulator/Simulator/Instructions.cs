@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Permissions;
@@ -71,9 +72,25 @@ namespace PicSimulator.Simulator
             return false;
         }
 
-        // 00 0111 dfff ffff
-        public bool Addwf(int cmd)
+        /// <summary>
+        /// 00 0111 dfff ffff
+        /// Status affected: C, DC, Z
+        /// Add the contents of the W register with the contents of register ’f’. If ’d’ is 0 the result is 
+        /// stored in the W register.If ’d’ is 1 the result is stored back in register ’f’
+        /// Cycles = 1
+        public bool Addwf(int f, int d)
         {
+            f = Storage.GetFileData();
+            if(d == 0)
+            {
+                Storage.wRegister += f;
+                // z, c, dc
+            }
+            else if(d == 1)
+            {
+                Storage.programmMemory[f] += Storage.wRegister;
+                Storage.SetFileData(f, d);
+            }
             return false;
         }
 

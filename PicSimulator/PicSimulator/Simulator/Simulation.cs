@@ -23,7 +23,7 @@ namespace PicSimulator.Simulator
         // varibale literal = Befehl und ff   -> die unteren 8 bit vom gesamten Befehl
         public void selectCommand()
         {
-            selectTypeOfCommand(12);
+            selectTypeOfCommand(0x070c);
             foreach(int command in Storage.programmMemory)
             {
                 selectTypeOfCommand(command);
@@ -77,15 +77,16 @@ namespace PicSimulator.Simulator
             //int mask = 0x00ff;  // 0b0000 1111 0000 0000
 
             //int command = (int)((mask & cmd) >> 8);
-            int fileAdress = cmd & 0x7f;   // 0111 1111 0000 0000
+            int fileAdress = cmd & 0x7f;   // 0000 0000 0111 1111 
+            int literal = (cmd & 0x0f00);
             int destination = (cmd & 0080) >> 7;  // 0000 0000 1000 0000
 
-            switch (fileAdress)
+            switch ( (cmd & 0x0f00) >> 8)
             {
                 case 0:
                     if(destination == 1)
                     {
-                        return instructions.Movewf(fileAdress);
+                        return instructions.Movewf(literal);
 
                     }
                     else if(destination == 0)
@@ -100,9 +101,9 @@ namespace PicSimulator.Simulator
                 case 1:
                     if(destination == 0)
                     {
-                        return instructions.Clrw(fileAdress);
+                        return instructions.Clrw(literal);
                     }
-                    return instructions.Clrf(fileAdress);
+                    return instructions.Clrf(literal);
                     
                 case 2:
                     return instructions.Subwf(fileAdress);
@@ -120,7 +121,7 @@ namespace PicSimulator.Simulator
                     return instructions.Xorwf(fileAdress);
                     
                 case 7:
-                    return instructions.Addwf(fileAdress);
+                    return instructions.Addwf(fileAdress, destination);
                     
                 case 8:
                     return instructions.Movf(fileAdress);

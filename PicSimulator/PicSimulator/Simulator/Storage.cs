@@ -17,7 +17,7 @@ namespace PicSimulator.Simulator
         }
         /* 0*/
 
-        public static short[] programmMemory = new short[1024];
+        public static int[] programmMemory = new int[1024];
         public int programmCounter = 0;
         public static byte[] dataMemory = new byte[256];  // bytw for Data between 0 and 255
         public Int16[] stack = new Int16[8];
