@@ -25,7 +25,9 @@ namespace PicSimulator.Simulator
         {
             selectTypeOfCommand(0x008c);
             selectTypeOfCommand(0x018c);
-            selectTypeOfCommand(0x017c);
+            selectTypeOfCommand(0x037c);
+            selectTypeOfCommand(0x0556);
+            selectTypeOfCommand(0x0956);
             foreach (int command in Storage.programmMemory)
             {
                 selectTypeOfCommand(command);
@@ -108,28 +110,28 @@ namespace PicSimulator.Simulator
                     return instructions.Clrf(fAdress);
                     
                 case 2:
-                    return instructions.Subwf(fAdress);
+                    return instructions.Subwf(fAdress, destination);
                     
                 case 3:
-                    return instructions.Decf(fAdress);
+                    return instructions.Decf(fAdress, destination);
                     
                 case 4:
-                    return instructions.Iorwf(fAdress);
+                    return instructions.Iorwf(fAdress, destination);
                     
                 case 5:
-                    return instructions.Andwf(fAdress);
+                    return instructions.Andwf(fAdress, destination);
                     
                 case 6:
-                    return instructions.Xorwf(fAdress);
+                    return instructions.Xorwf(fAdress, destination);
                     
                 case 7:
                     return instructions.Addwf(fAdress, destination);
                     
                 case 8:
-                    return instructions.Movf(fAdress);
+                    return instructions.Movf(fAdress, destination);
                     
                 case 9:
-                    return instructions.Comf(fAdress);
+                    return instructions.Comf(fAdress, destination);
                     
                 case 10:
                     return instructions.Incf(fAdress);
