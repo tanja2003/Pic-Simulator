@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Animation;
 using PicSimulator.DataMemory;
 
 namespace PicSimulator.Simulator
@@ -18,7 +19,7 @@ namespace PicSimulator.Simulator
         /* 0*/
 
         public static int[] programmMemory = new int[1024];
-        public int programmCounter = 0;
+        public static int programmCounter = 0;
         public static byte[] dataMemory = new byte[256];  // bytw for Data between 0 and 255
         public Int16[] stack = new Int16[8];
         public int stackpointer = 0;
@@ -47,7 +48,7 @@ namespace PicSimulator.Simulator
 
         #region ProgrammCounter
 
-        private void IncrementProgrammCounter()
+        public static void IncrementProgrammCounter()
         {
             programmCounter++;
             dataMemory[(int)MemoryStructur.PCL1] = (byte)programmCounter;
@@ -98,6 +99,63 @@ namespace PicSimulator.Simulator
             stackpointer--;
         }
         #endregion
+
+        #region DataMemory
+
+        /// <summary>
+        /// returns content of the adress in the dataMemory
+        public static int GetRegisterData(int adress)
+        {
+            if(adress == 0x00)  // INDR --> Uses contents of FSR to address data memory (not a physical register)
+            {
+                adress = dataMemory[0x04];
+                dataMemory[0x00] = dataMemory[adress];
+                return dataMemory[adress];
+            }
+
+            // on which bank?
+            int rp0 = (dataMemory[3] & 0x20) >> 5;  // 0010 0000
+            if(rp0 == 0)
+            {
+                return dataMemory[adress];
+            }
+            else if(rp0 == 1)
+            {
+                return dataMemory[adress + 0x80];  // other 128 bytes
+            }
+            throw new Exception("Wrong Rp0 Value!");
+        }
+
+
+        /// <summary>
+        /// When the Data in the register (adress) was changed, 
+        /// then this must be stored in the Datamemory
+        public static void SetRegisterData(int valueOfAddress, int adress)
+        {
+            if (adress == 0x00)
+            {
+                adress = dataMemory[0x04];
+            }
+            int rp0 = (dataMemory[3] & 0x20) >> 5;  // rp0 is bit 5 --> mask: 0010 0000
+            if (rp0 == 0 && adress <= 0x4F)  // the register > 0x04 are unimplemented data memory
+            {
+                dataMemory[adress] = (byte)valueOfAddress;
+                if (adress == 2 || adress == 3 || adress == 4 || adress == 10 || adress == 11)
+                {   // these registers are at bank0 and bank1!
+                    dataMemory[adress + 0x80] = (byte)valueOfAddress;
+                }
+            }
+            else if (rp0 == 1 && adress <= 0x4F)
+            {
+                dataMemory[adress + 0x80] = (byte)valueOfAddress;
+                if (adress == 2 || adress == 3 || adress == 4 || adress == 10 || adress == 11)
+                {
+                    dataMemory[adress] |= (byte)valueOfAddress;
+                }
+            }
+        }
+        #endregion
+
         // Initalisieren
         // Programmzahler
         // Stack

@@ -27,8 +27,7 @@ namespace PicSimulator
         {
             InitializeComponent();
             Storage storage = new Storage();
-            Flags flags = new Flags();
-            flags.SetStatusZ(false);
+
             //Simulation simulation = new Simulation();
 
         }

@@ -23,8 +23,10 @@ namespace PicSimulator.Simulator
         // varibale literal = Befehl und ff   -> die unteren 8 bit vom gesamten Befehl
         public void selectCommand()
         {
-            selectTypeOfCommand(0x070c);
-            foreach(int command in Storage.programmMemory)
+            selectTypeOfCommand(0x008c);
+            selectTypeOfCommand(0x018c);
+            selectTypeOfCommand(0x017c);
+            foreach (int command in Storage.programmMemory)
             {
                 selectTypeOfCommand(command);
             }
@@ -75,18 +77,18 @@ namespace PicSimulator.Simulator
         private bool selectCommand00(int cmd)
         {
             //int mask = 0x00ff;  // 0b0000 1111 0000 0000
-
+            
             //int command = (int)((mask & cmd) >> 8);
-            int fileAdress = cmd & 0x7f;   // 0000 0000 0111 1111 
+            int fAdress = cmd & 0x7f;   // 0000 0000 0111 1111   // fAdress -> register f
             int literal = (cmd & 0x0f00);
-            int destination = (cmd & 0080) >> 7;  // 0000 0000 1000 0000
+            int destination = (cmd & 0x0080) >> 7;  // 0000 0000 1000 0000
 
             switch ( (cmd & 0x0f00) >> 8)
             {
                 case 0:
                     if(destination == 1)
                     {
-                        return instructions.Movewf(literal);
+                        return instructions.Movwf(fAdress);
 
                     }
                     else if(destination == 0)
@@ -101,51 +103,51 @@ namespace PicSimulator.Simulator
                 case 1:
                     if(destination == 0)
                     {
-                        return instructions.Clrw(literal);
+                        return instructions.Clrw();
                     }
-                    return instructions.Clrf(literal);
+                    return instructions.Clrf(fAdress);
                     
                 case 2:
-                    return instructions.Subwf(fileAdress);
+                    return instructions.Subwf(fAdress);
                     
                 case 3:
-                    return instructions.Decf(fileAdress);
+                    return instructions.Decf(fAdress);
                     
                 case 4:
-                    return instructions.Iorwf(fileAdress);
+                    return instructions.Iorwf(fAdress);
                     
                 case 5:
-                    return instructions.Andwf(fileAdress);
+                    return instructions.Andwf(fAdress);
                     
                 case 6:
-                    return instructions.Xorwf(fileAdress);
+                    return instructions.Xorwf(fAdress);
                     
                 case 7:
-                    return instructions.Addwf(fileAdress, destination);
+                    return instructions.Addwf(fAdress, destination);
                     
                 case 8:
-                    return instructions.Movf(fileAdress);
+                    return instructions.Movf(fAdress);
                     
                 case 9:
-                    return instructions.Comf(fileAdress);
+                    return instructions.Comf(fAdress);
                     
                 case 10:
-                    return instructions.Incf(fileAdress);
+                    return instructions.Incf(fAdress);
                     
                 case 11:
-                    return instructions.Decfsz(fileAdress);
+                    return instructions.Decfsz(fAdress);
                     
                 case 12:
-                    return instructions.Rrf(fileAdress);
+                    return instructions.Rrf(fAdress);
                     
                 case 13:
-                    return instructions.Rlf(fileAdress);
+                    return instructions.Rlf(fAdress);
                     
                 case 14:
-                    return instructions.Swapf(fileAdress);
+                    return instructions.Swapf(fAdress);
                     
                 case 15:
-                    return instructions.Incfsz(fileAdress);
+                    return instructions.Incfsz(fAdress);
                     
                 default:
                     throw new Exception("instruction Error!");

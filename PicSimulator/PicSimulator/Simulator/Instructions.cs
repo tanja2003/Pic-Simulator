@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,35 +17,79 @@ namespace PicSimulator.Simulator
 
         }
 
-
+        private static int MaskDC = 15;
 
 
         #region Byte-oriented operations 
-        // 00 0000 1fff ffff
-        public bool Movewf(int cmd)
+
+        /// <summary>
+        /// 00 0000 1fff ffff
+        /// Status affected: None
+        /// Move data from W register to register 'f'.
+        /// Cycles: 1
+        public bool Movwf(int f)
         {
+            Storage.wRegister = 5;
+            int fRegister = Storage.GetRegisterData(f);
+            int result = fRegister + Storage.wRegister;
+            Storage.SetRegisterData(result, f);
+            Storage.IncrementProgrammCounter();
             return false;
         }
 
-        // 00 0001 0fff ffff
-        public bool Clrw (int cmd)
-        {
-            return false;
-        }
-
-         // 00 0001 1fff ffff
-        public bool Clrf(int cmd)
+        /// <summary>
+        /// 00 0001 0fff ffff
+        /// Status affected: Z
+        /// W register is cleared. Zero bit (Z) is set.
+        /// Cycles: 1
+        public bool Clrw ()
         {
             Storage.wRegister = 0;
-            // SetStatusZ()
-            // Programmzahler erhöhen
-
+            Flags.SetStatusZ(true);
+            Storage.IncrementProgrammCounter();
             return false;
         }
 
-        // 00 0010 dfff ffff
-        public bool Subwf(int cmd)
+        /// <summary>
+        /// 00 0001 1fff ffff
+        /// Status affected: Z
+        /// The contents of register ’f’ are cleared 
+        /// and the Z bit is set.
+        /// Cycles: 1
+        public bool Clrf(int f)
         {
+           Storage.SetRegisterData(0, f);
+            Flags.SetStatusZ(true);
+            Storage.IncrementProgrammCounter();
+            return false;
+        }
+
+        /// <summary>
+        /// 00 0010 dfff ffff
+        /// Status affected: C, DC, Z
+        /// Subtract (2’s complement method) of W register from register 'f'. If 'd' is 0 the
+        /// result is stored in the W register.If 'd' is 1 the result is stored back in register 'f'.
+        /// Cycles: 1
+        public bool Subwf(int f, int d)
+        {
+            int fRegister = Storage.GetRegisterData(f);  // Inhalt von f ist im Datenspeicher
+            int result = fRegister - Storage.wRegister;
+            Flags.SetStatusZ(result % 256 == 0);
+            Flags.SetStatusCarry( result >= 0);  // result is postive: c = 1
+            Flags.SetStatusDigitCarry((Storage.wRegister & MaskDC + fRegister & MaskDC) >= 16);
+            if (result > 255)
+            {
+                result %= 256;
+            }
+
+            if (d == 0)
+            {
+                Storage.wRegister = result;
+            }
+            else if (d == 1)
+            {
+                Storage.SetRegisterData(result, f);
+            }
             return false;
         }
 
@@ -77,19 +122,27 @@ namespace PicSimulator.Simulator
         /// Status affected: C, DC, Z
         /// Add the contents of the W register with the contents of register ’f’. If ’d’ is 0 the result is 
         /// stored in the W register.If ’d’ is 1 the result is stored back in register ’f’
-        /// Cycles = 1
+        /// Cycles: 1
         public bool Addwf(int f, int d)
         {
-            f = Storage.GetFileData();
+            int fRegister = Storage.GetRegisterData(f);  // Inhalt von f ist im Datenspeicher
+            int result = Storage.wRegister + fRegister;   
+            Flags.SetStatusZ(result % 256 == 0);
+            Flags.SetStatusCarry(result > 255 || result < 0);
+            Flags.SetStatusDigitCarry((Storage.wRegister & MaskDC + fRegister & MaskDC) >= 16);
+            if (result > 255) 
+            {
+                result %= 256;
+            }
+            
             if(d == 0)
             {
-                Storage.wRegister += f;
+                Storage.wRegister = result;
                 // z, c, dc
             }
             else if(d == 1)
             {
-                Storage.programmMemory[f] += Storage.wRegister;
-                Storage.SetFileData(f, d);
+                Storage.SetRegisterData(result, f);
             }
             return false;
         }
