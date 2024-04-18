@@ -55,6 +55,11 @@ namespace PicSimulator.Simulator
             }
         }
 
+        public static bool IsCarrySet()
+        {
+            return (statusRegister |= 1) != 0;
+        }
+
         /// <summary>
         /// set or delte Digitcarryflag
         /// use of bitwise or and the mask of the Digitcarryflag(1) to set

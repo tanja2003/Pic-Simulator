@@ -27,7 +27,7 @@ namespace PicSimulator.Simulator
             selectTypeOfCommand(0x018c);
             selectTypeOfCommand(0x037c);
             selectTypeOfCommand(0x0556);
-            selectTypeOfCommand(0x0956);
+            selectTypeOfCommand(0x0E56);
             foreach (int command in Storage.programmMemory)
             {
                 selectTypeOfCommand(command);
@@ -84,13 +84,14 @@ namespace PicSimulator.Simulator
             int fAdress = cmd & 0x7f;   // 0000 0000 0111 1111   // fAdress -> register f
             int literal = (cmd & 0x0f00);
             int destination = (cmd & 0x0080) >> 7;  // 0000 0000 1000 0000
+            int fData = Storage.GetRegisterData(fAdress);
 
             switch ( (cmd & 0x0f00) >> 8)
             {
                 case 0:
                     if(destination == 1)
                     {
-                        return instructions.Movwf(fAdress);
+                        return instructions.Movwf(fAdress, fData);
 
                     }
                     else if(destination == 0)
@@ -110,46 +111,46 @@ namespace PicSimulator.Simulator
                     return instructions.Clrf(fAdress);
                     
                 case 2:
-                    return instructions.Subwf(fAdress, destination);
+                    return instructions.Subwf(fAdress, destination, fData);
                     
                 case 3:
-                    return instructions.Decf(fAdress, destination);
+                    return instructions.Decf(fAdress, destination, fData);
                     
                 case 4:
-                    return instructions.Iorwf(fAdress, destination);
+                    return instructions.Iorwf(fAdress, destination, fData);
                     
                 case 5:
-                    return instructions.Andwf(fAdress, destination);
+                    return instructions.Andwf(fAdress, destination, fData);
                     
                 case 6:
-                    return instructions.Xorwf(fAdress, destination);
+                    return instructions.Xorwf(fAdress, destination, fData);
                     
                 case 7:
-                    return instructions.Addwf(fAdress, destination);
+                    return instructions.Addwf(fAdress, destination, fData);
                     
                 case 8:
-                    return instructions.Movf(fAdress, destination);
+                    return instructions.Movf(fAdress, destination, fData);
                     
                 case 9:
-                    return instructions.Comf(fAdress, destination);
+                    return instructions.Comf(fAdress, destination, fData);
                     
                 case 10:
-                    return instructions.Incf(fAdress);
+                    return instructions.Incf(fAdress, destination, fData);
                     
                 case 11:
-                    return instructions.Decfsz(fAdress);
+                    return instructions.Decfsz(fAdress, destination, fData);
                     
                 case 12:
-                    return instructions.Rrf(fAdress);
+                    return instructions.Rrf(fAdress, destination, fData);
                     
                 case 13:
-                    return instructions.Rlf(fAdress);
+                    return instructions.Rlf(fAdress, destination, fData);
                     
                 case 14:
-                    return instructions.Swapf(fAdress);
+                    return instructions.Swapf(fAdress, destination, fData);
                     
                 case 15:
-                    return instructions.Incfsz(fAdress);
+                    return instructions.Incfsz(fAdress, destination, fData);
                     
                 default:
                     throw new Exception("instruction Error!");
