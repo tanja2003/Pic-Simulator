@@ -21,24 +21,13 @@ namespace PicSimulator.Simulator
 
 
         // varibale literal = Befehl und ff   -> die unteren 8 bit vom gesamten Befehl
-        public void selectCommand()
-        {
-            selectTypeOfCommand(0x008c);
-            selectTypeOfCommand(0x018c);
-            selectTypeOfCommand(0x037c);
-            selectTypeOfCommand(0x0556);
-            selectTypeOfCommand(0x0E56);
-            foreach (int command in Storage.programmMemory)
-            {
-                selectTypeOfCommand(command);
-            }
-        }
+
 
         // Instruction types:
         // byte oriented operations
         // bit oriented operations
         // literal and control operations
-        private void selectTypeOfCommand(int cmd)
+        public void selectTypeOfCommand(int cmd)
         {
             // 0x3000 = 0b0011_0000_0000_0000 (cmd)
             // to select the Type of command, we need bit 12 and 13
@@ -52,20 +41,20 @@ namespace PicSimulator.Simulator
             // now we can check which type the cmd is
 
             if (data == 0) // Byte-oriented operations
-            {
+            {   // 0b00_xxxx_xxxx_xxxx
                 selectCommand00(cmd);
 
             }
             else if (data == 1)  // Bit-orienented operations
-            { 
+            {   // 0b01_xxxx_xxxx_xxxx
                 selectCommand01(cmd);
             }
             else if (data == 2)   // control operations (Goto, call)
-            {
-
+            {   // 0b10_xxxx_xxxx_xxxx
+                selectCommand02(cmd);
             }
             else if(data == 3)  // literal operations
-            {
+            {   // 0b11_xxxx_xxxx_xxxx
 
             }
             else
@@ -161,12 +150,41 @@ namespace PicSimulator.Simulator
 
         }
 
-        private void selectCommand01(int cmd)
+        private bool selectCommand01(int cmd)
         {
-            int fileAdress = cmd & 0x7f;   // 0111 1111 0000 0000
-            int bitAdress = (cmd & 0x0830) >> 7;// 7 mal schieben   // 0000 1000 0010 0000
-            int mask = cmd & 0x0cff;
+            int fAdress = cmd & 0x7f;   // 0111 1111
+            int bitAdress = (cmd & 0x0380) >> 7;// 7 mal schieben   // 0000 0011 1000 0000
+            int mask = cmd & 0x3ff;   // 0000 0011 1111 1111
+            int fData = Storage.GetRegisterData(fAdress);
 
+            switch ((cmd & 0x0C00) >> 10)   // 0000 1100 0000 0000
+            {
+                case 0:
+                    return instructions.Bcf(fAdress, bitAdress, fData);
+                case 1:
+                    return instructions.Bsf(fAdress, bitAdress, fData);
+                case 2:
+                    return instructions.Btfsc(fAdress, bitAdress, fData);
+                case 3:
+                    return instructions.Btfss(fAdress, bitAdress, fData);
+                default:
+                    throw new Exception("Instruction Error!");
+            }
+        }
+
+        private bool selectCommand02(int cmd)
+        {
+            int programmAdress = cmd & 0x7ff; // goto und call   // 0000 0111 1111 1111
+
+            switch ((cmd & 0x0800) >> 11)
+            {
+                case 0:
+                    return instructions.Goto(programmAdress);
+                case 1:
+                    return instructions.Call(programmAdress); 
+                default:
+                    throw new Exception("Instruction Error!");
+            }
         }
     }
 }

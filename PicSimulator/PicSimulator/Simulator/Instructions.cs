@@ -15,6 +15,7 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PicSimulator.Simulator
 {
@@ -372,6 +373,115 @@ namespace PicSimulator.Simulator
             return false;
         }
 
+        #endregion
+
+        #region Bit-oriented operations
+
+        /// <summary>
+        /// 01 00bb bfff ffff
+        /// Status Affected: None
+        /// Bit 'b' in register 'f' is cleared
+        /// Cycles: 1
+        public bool Bcf(int f, int b, int data)
+        {
+            // b is between 0 and 7
+            int mask = ~(1 << b);  //  1111 1b11  b = 0
+            data &= mask;          // bit b is set to 0 
+            Storage.SetRegisterData(data, f);
+
+            return false;
+        }
+
+
+    /// <summary>
+    /// 01 01bb bfff ffff
+    /// Status Affected: None
+    /// Bit ’b’ in register ’f’ is set.
+    /// Cycles: 1
+    public bool Bsf(int f, int b, int data)
+        {
+            // b is between 0 and 7
+            data = 6; // 0000 0110
+            int mask = (1 << b);  //  0000 0010  b = 1
+            data |= mask;          // bit b is set to 0 
+            Storage.SetRegisterData(data, f);
+
+            return false;
+        }
+
+
+        /// <summary>
+        /// 01 10bb bfff ffff
+        /// Status Affected: None
+        /// If bit ’b’ in register ’f’ is ’1’ then the next instruction is executed. If bit ’b’,
+        /// in register ’f’, is ’0’ then the instruction is discarded, and a NOP is executed instead, 
+        /// making this a 2TCY instruction.
+        /// Cycles: 1(2)
+        public bool Btfsc(int f, int b, int data)
+        {     
+            int mask = (1 << b);  //  0000 0b00  b = 1    
+            int result = (mask & data) >> b;  // is bit b 1 in data?
+
+            Storage.IncrementProgrammCounter();
+
+            //data[b] == 0 ?
+            if (result == 0)
+            {  // skip one instruction
+                Storage.IncrementProgrammCounter();
+                return true; // 2 Cycles
+            }           
+ 
+            Storage.SetRegisterData(data, f);
+            return false;
+        }
+
+        /// <summary>
+        /// 01 11bb bfff ffff
+        /// Status Affected: None
+        /// f bit ’b’ in register ’f’ is ’0’ then the next instruction is executed. If bit ’b’ is ’1’, 
+        /// then the next instruction is discarded and a NOP is executed instead, making this a 2TCY instruction.
+        /// Cycles: 1(2)
+        public bool Btfss(int f, int b, int data)
+        {
+            data = 5;  // 0000 0101
+            int mask = (1 << b);  //  0000 0b00  b = 1    
+            int result = (mask & data) >> b;  // is bit b 1 in data?
+
+            Storage.IncrementProgrammCounter();
+
+            //data[b] == 1 ?
+            if (result == 1)
+            {  // skip one instruction
+                Storage.IncrementProgrammCounter();
+                return true; // 2 Cycles
+            }
+
+            Storage.SetRegisterData(data, f);
+            return false;
+        }
+
+        #endregion
+
+        #region Literal and Control Operations
+
+
+        /// <summary>
+        ///  10 1kkk kkkk kkkk
+        /// Status Affected: None
+        /// GOTO is an unconditional branch. The eleven bit immediate value is loaded into PC bits<10:0>. 
+        /// The upper bits of PC are loaded from PCLATH<4:3>. GOTO is a two cycle instruction.
+        /// Cycles: 2
+        public bool Goto(int programmAdress)
+        {
+            Storage.SetProgrammCounter(programmAdress);
+
+            return true;
+        }
+
+        public bool Call(int programmAdress)
+        {
+            return true;
+        }
         #endregion
 
         #region Helper

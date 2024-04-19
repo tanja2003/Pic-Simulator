@@ -15,7 +15,7 @@ namespace PicSimulator.Simulator
         }
 
         #region Statusregister Flags
-        private static byte statusRegister = Storage.dataMemory[3];
+        private static int statusRegister = Storage.dataMemory[3];
 
         /// <summary>
         /// set or delete Zeroflag in the statusregister

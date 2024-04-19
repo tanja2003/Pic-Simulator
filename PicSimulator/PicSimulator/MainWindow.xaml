@@ -36,7 +36,7 @@
             </Grid.RowDefinitions>
 
             <Button x:Name="StartButton" Content="Start" Click="StartButton_Click" Grid.Row="0"/>
-            <Button Content="Stop" Grid.Row="1"/>
+            <Button x:Name="StopButton" Content="Stop" Grid.Row="1" Click="StopButtonClick"/>
             <Button Content="Reset" Grid.Row="2"/>
             <Button Content="Next" Grid.Row="3"/>
             <Button Content="Continue" Grid.Row="4"/>

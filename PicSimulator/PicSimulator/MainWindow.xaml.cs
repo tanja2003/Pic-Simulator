@@ -16,6 +16,7 @@ using System.Threading;
 using PicSimulator.Simulator;
 using PicSimulator.ColumnsOrder;
 using System.Collections.ObjectModel;
+using System.Security.Cryptography.X509Certificates;
 
 namespace PicSimulator
 {
@@ -58,12 +59,34 @@ namespace PicSimulator
 
         public ObservableCollection<Columns> Columns { get; set; } = new ObservableCollection<Columns>();
 
+
+        public void selectCommand()
+        {
+            Simulation simulation = new Simulation();
+            while (!stopButtonClicked)   // falsch wird nie stopbutton angezigt
+            {
+                MessageBox.Show("ja");
+                simulation.selectTypeOfCommand(Storage.programmCounter);
+                ProgrammDataViewer.SelectedIndex = Storage.programmCounter;  // zeigt aktuelle zeile, aber auch noch falsch
+                ProgrammDataViewer.ScrollIntoView(ProgrammDataViewer.SelectedItem);
+            }
+        }
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             // check if File is loadad
-            Simulation simulation = new Simulation();
-            simulation.selectCommand();
+            stopButtonClicked = false;
+
+            selectCommand();
 
         }
+
+
+        public bool stopButtonClicked = false;
+        private void StopButtonClick(object sender, RoutedEventArgs e)
+        {
+            stopButtonClicked = true;
+            MessageBox.Show("nein");
+        }
+        
     }
 }

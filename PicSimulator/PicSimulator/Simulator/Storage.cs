@@ -20,7 +20,7 @@ namespace PicSimulator.Simulator
 
         public static int[] programmMemory = new int[1024];
         public static int programmCounter = 0;
-        public static byte[] dataMemory = new byte[256];  // bytw for Data between 0 and 255
+        public static int[] dataMemory = new int[256];  // byte for Data between 0 and 255
         public Int16[] stack = new Int16[8];
         public int stackpointer = 0;
 
@@ -48,27 +48,53 @@ namespace PicSimulator.Simulator
 
         #region ProgrammCounter
 
+
+        // Also der PRogramm Counter ist 13BIt breit
+        // low Byte ist das PCL Register (PC<7:0>)
+        // high byte ist das PCLATH Register (PC<12:8>)
+        // Bei einem Befehl mit PCL als Destination: die unteren 5 Bits vom PCLATh werden in PC geladen
+        // und das ERgbnis der ALu in das PCL
+        // Bei Goto oder Call: unterne 11 Bits sind der Befehl, oberen 2 Bits sind PCLATH(<4:3>)
+        
+        public static int pclath = 0;
+
+        // Fetch cycle behaviour of the Programm Counter
+        // In fetch cycles, the program counter is simply incremented by one.
+        // When it reaches its limit, it starts from 0 again.
         public static void IncrementProgrammCounter()
         {
             programmCounter++;
-            dataMemory[(int)MemoryStructur.PCL1] = (byte)programmCounter;
+
+            if (programmCounter == 2048)
+            {   // start at the begining again
+                programmCounter = 0; 
+            }
+            dataMemory[(int)MemoryStructur.PCL1] = (byte)(programmCounter & 0xFF);  // update PCL 
+
+            // 
         }
 
-        private void SetProgrammCounter(Int16 value)
+
+        public static void SetProgrammCounter(int pcl)
         {   // max 2048 addresses (8K)
-            if (value <= 2047)
-            {
-                programmCounter = value;
-            }
-            else
-            {   // PC starts to count with 0 again
-                programmCounter = value - 2048;
-            }
+            // 0x18 Mask for bit 3 and 4 in Pclath
+            // the total of 5 bits of the Pclath are moved by 8 to the left,
+            // to move bits 3 and 4 to positions 12 and 13
+            // at the end, PCL and Pclath are added together to represent the PC
+            int pclath = (dataMemory[(int)MemoryStructur.PCLATH1] & 0x18) << 8;
+
+            programmCounter = pclath + pcl;
         }
 
         private int GetProgrammCounter()
         {
             return programmCounter;
+        }
+
+        private void SetPcLAth(int value)
+        {
+
+
         }
 
         #endregion
