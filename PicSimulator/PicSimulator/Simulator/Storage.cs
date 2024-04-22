@@ -21,8 +21,8 @@ namespace PicSimulator.Simulator
         public static int[] programmMemory = new int[1024];
         public static int programmCounter = 0;
         public static int[] dataMemory = new int[256];  // byte for Data between 0 and 255
-        public Int16[] stack = new Int16[8];
-        public int stackpointer = 0;
+        public static int[] stack = new int[8];
+        public static int stackpointer = 0;
 
 
         public static int wRegister = 0;
@@ -74,8 +74,19 @@ namespace PicSimulator.Simulator
             // 
         }
 
-
-        public static void SetProgrammCounter(int pcl)
+        public static void SetProgrammCounter(int value)
+        {
+            if(value < 2047)
+            {
+                programmCounter = value;
+                dataMemory[2] = programmCounter;
+            }
+            else
+            {
+                throw new Exception("ProgrammCounter to high!");
+            }
+        }
+        public static void SetProgrammCounterPclath(int pcl)
         {   // max 2048 addresses (8K)
             // 0x18 Mask for bit 3 and 4 in Pclath
             // the total of 5 bits of the Pclath are moved by 8 to the left,
@@ -84,6 +95,7 @@ namespace PicSimulator.Simulator
             int pclath = (dataMemory[(int)MemoryStructur.PCLATH1] & 0x18) << 8;
 
             programmCounter = pclath + pcl;
+            dataMemory[2] = programmCounter;
         }
 
         private int GetProgrammCounter()
@@ -101,7 +113,12 @@ namespace PicSimulator.Simulator
 
         #region Stack
 
-        private void WriteStack(Int16 value)
+
+        /// <summary>
+        /// with Every Call-Instruction the call-back adress is written on the stack. 
+        /// Return: Stackpointer--
+        /// More the 8 Calls: overwrite the call-back address
+        public static void WriteStack(int value)
         {
             stack[stackpointer] = value;
             if (stackpointer == 7)
@@ -114,12 +131,12 @@ namespace PicSimulator.Simulator
             }
         }
 
-        private Int16 ReadStack()
+        public static int ReadStack()
         {
             return stack[stackpointer];
         }
 
-        private void DeleteTopOfStack()
+        public static void DeleteTopOfStack()
         {
             stack[stackpointer] = 0;
             stackpointer--;
@@ -180,6 +197,41 @@ namespace PicSimulator.Simulator
                 }
             }
         }
+        #endregion
+
+        #region Timer, Watchdog and Prescaler
+
+        public static void IncreaseTimer()
+        {
+
+        }
+
+        public static void ResetWatchdogTimer()
+        {
+
+        }
+
+        public static void IncrementWatchdogTimer()
+        {
+
+        }
+
+        private static void CountUpTime()
+        {
+
+        }
+
+        private static int GetPrescalerTimer0()
+        {
+            return 0;
+        }
+
+        private static int GetPrescalerWdt()
+        {
+            return 0;
+        }
+
+
         #endregion
 
         // Initalisieren

@@ -1,10 +1,13 @@
 ﻿using Microsoft.VisualBasic;
 using Microsoft.Win32;
+using PicSimulator.DataMemory;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Permissions;
 using System.Security.Policy;
@@ -12,6 +15,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Interop;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Media3D;
 using static System.Net.Mime.MediaTypeNames;
@@ -388,7 +392,7 @@ namespace PicSimulator.Simulator
             int mask = ~(1 << b);  //  1111 1b11  b = 0
             data &= mask;          // bit b is set to 0 
             Storage.SetRegisterData(data, f);
-
+            Storage.IncrementProgrammCounter();
             return false;
         }
 
@@ -401,7 +405,6 @@ namespace PicSimulator.Simulator
     public bool Bsf(int f, int b, int data)
         {
             // b is between 0 and 7
-            data = 6; // 0000 0110
             int mask = (1 << b);  //  0000 0010  b = 1
             data |= mask;          // bit b is set to 0 
             Storage.SetRegisterData(data, f);
@@ -430,8 +433,6 @@ namespace PicSimulator.Simulator
                 Storage.IncrementProgrammCounter();
                 return true; // 2 Cycles
             }           
- 
-            Storage.SetRegisterData(data, f);
             return false;
         }
 
@@ -443,7 +444,6 @@ namespace PicSimulator.Simulator
         /// Cycles: 1(2)
         public bool Btfss(int f, int b, int data)
         {
-            data = 5;  // 0000 0101
             int mask = (1 << b);  //  0000 0b00  b = 1    
             int result = (mask & data) >> b;  // is bit b 1 in data?
 
@@ -456,7 +456,6 @@ namespace PicSimulator.Simulator
                 return true; // 2 Cycles
             }
 
-            Storage.SetRegisterData(data, f);
             return false;
         }
 
@@ -473,15 +472,189 @@ namespace PicSimulator.Simulator
         /// Cycles: 2
         public bool Goto(int programmAdress)
         {
-            Storage.SetProgrammCounter(programmAdress);
+            Storage.SetProgrammCounterPclath(programmAdress);
 
             return true;
         }
 
-        public bool Call(int programmAdress)
+
+        /// <summary>
+        /// 11 01xx kkkk kkkk
+        /// Status Affected: None
+        /// The W register is loaded with the eight bit literal ’k’. The program counter is loaded 
+        /// from the top of the stack(the return address). This is a two cycle instruction.
+        /// Cycles: 2
+        public bool Call(int programmAdress, int k)
+        {
+            Storage.wRegister = k;
+            Storage.IncrementProgrammCounter();
+            Storage.WriteStack(Storage.programmCounter);  // call-back address
+            Storage.SetProgrammCounterPclath(programmAdress);  // jump to the call address
+            return true;
+        }
+
+
+        /// <summary>
+        /// 11 111x kkkk kkkk
+        /// Status Affected: C, DC, Z
+        /// The contents of the W register are added to the eight bit literal ’k’ and the
+        /// result is placed in the W register.
+        /// Cycles: 1
+        public bool Addlw(int k)
+        {
+            int result = Storage.wRegister + k;
+            if(result > 255)
+            {
+                result %= 256;
+                Flags.SetStatusCarry(true);
+            }
+            Flags.SetStatusCarry(result > 255);
+            Flags.SetStatusZ(result == 0);
+            Flags.SetStatusDigitCarry((Storage.wRegister & MaskDC) + (k & MaskDC) >= 16);
+
+            if(Storage.wRegister == 0 || k == 0)  /////// this case also here ???????????????????
+            {
+                Flags.SetStatusDigitCarry(false);
+                Flags.SetStatusCarry(false); 
+            }
+            Storage.wRegister = result;
+            Storage.IncrementProgrammCounter();
+            return false;
+        }
+
+
+        /// <summary>
+        /// 11 1001 kkkk kkkk
+        /// Status Affected: Z
+        /// The contents of W register are AND’ed with the eight bit literal 'k'. The
+        /// result is placed in the W register.
+        /// Cycles: 1
+        public bool Andlw(int k)
+        {
+            int result = Storage.wRegister & k;
+            Flags.SetStatusZ(result == 0);
+            Storage.wRegister = result;
+            Storage.IncrementProgrammCounter();
+            return false;
+        }
+
+
+        /// <summary>
+        /// 00 0000 0110 0100
+        /// Status Affected: TO, PD
+        /// LRWDT instruction resets the Watchdog Timer. It also resets the prescaler of the WDT.
+        /// Status bits TO and PD are set.
+        /// Cycles: 1
+        public bool Clrwdt()
+        {
+
+            return false;
+        }
+
+
+        /// <summary>
+        /// 11 1000 kkkk kkkk
+        /// Status Affected: Z
+        /// The contents of the W register is OR’ed with the eight bit literal 'k'. The
+        /// result is placed in the W register.
+        /// Cylces: 1
+        public bool Iorlw(int k)
+        {
+            int result = Storage.wRegister | k;
+            Flags.SetStatusZ(result == 0);
+            Storage.wRegister = result;
+            Storage.IncrementProgrammCounter();
+            return false;
+        }
+
+
+        /// <summary>
+        /// 11 00xx kkkk kkkk
+        /// Status Affected: None
+        /// The eight bit literal ’k’ is loaded into W register.The don’t cares will assemble as 0’s.
+        ///  Cycles: 1
+        public bool Movlw(int k)
+        {
+            Storage.wRegister = k;  /// what is with the dont cares?????????????????????????????
+            Storage.IncrementProgrammCounter();
+
+            return false;
+        }
+
+        public bool Retfie()
         {
             return true;
         }
+
+        /// <summary>
+        /// 11 01xx kkkk kkkk
+        /// Status Affected: None
+        /// The W register is loaded with the eight bit literal ’k’. The program counter is loaded from 
+        /// the top of the stack(the return address). This is a two cycle instruction.
+        /// Cylces: 2
+        public bool Retlw(int k)
+        {
+            Storage.wRegister = k;
+            int stackValue = Storage.ReadStack();
+            Storage.DeleteTopOfStack();
+            Storage.SetRegisterData(2, stackValue);
+            Storage.SetProgrammCounter(stackValue);
+            return true;
+        }
+
+        public bool Return()
+        {
+            return true;
+        }
+
+        public bool Sleep()
+        {
+            return false;
+        }
+
+
+        /// <summary>
+        /// Staus Affected: C, CD, Z
+        /// The contents of W register is subtracted (2’s complement method) from the eight bit 
+        /// literal 'k'. The result is placed in the W register.
+        /// Cycles: 1
+        public bool Sublw(int k)
+        {
+
+            // TODO: negative Result
+            int result = k - Storage.wRegister;
+            Storage.wRegister = result; 
+            Flags.SetStatusZ(result == 0);
+            Flags.SetStatusCarry(result >= 0);
+            Flags.SetStatusDigitCarry((Storage.wRegister & MaskDC) + (k & MaskDC) >= 16);
+
+            if (Storage.wRegister == 0)
+            {
+                Flags.SetStatusCarry(true);
+                Flags.SetStatusDigitCarry(true);
+            }
+
+            Storage.IncrementProgrammCounter();
+            return false;   
+        }
+
+
+        /// <summary>
+        /// Status Affected: Z
+        /// The contents of the W register are XOR’ed with the eight bit literal 'k'. 
+        /// The result is placed in the W register.
+        /// Cycles: 1
+        public bool Xorlw(int k)
+        {
+            int result = Storage.wRegister ^ k;
+            Flags.SetStatusZ(result == 0);
+            Storage.wRegister = result;
+
+            Storage.IncrementProgrammCounter();
+            return false;
+        }
+
+
         #endregion
 
         #region Helper
@@ -506,6 +679,34 @@ namespace PicSimulator.Simulator
                 Storage.SetRegisterData(result, f);
             }
             Storage.IncrementProgrammCounter();
+        }
+        #endregion
+
+        #region Runtime
+        private int runTimeCounter = 0;
+        private int quarzFrequency = 4; // in Mhz
+        private int programmStepTime = 0;
+        #endregion
+
+        #region Watchdog
+        private double watchdogTimer = 0.0;  // 18.0ns(Alarms)
+        public bool watchdogSelected = false;
+        public bool clrWdtFlag = false;
+
+
+        public void ResetWatchdog()
+        {
+
+        }
+
+        public void IncrementWatchdog(bool select)
+        {
+
+        }
+
+        public void GetWatchdogTime()
+        {
+
         }
         #endregion
     }

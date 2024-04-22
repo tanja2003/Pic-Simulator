@@ -43,9 +43,9 @@ namespace PicSimulator.Simulator
                         // only the first two columns are important!
                         var address = line.Substring(0,4);
                         var opcode = line.Substring(5,4);
-                        //var rowNumber = line.Substring(20,5).Trim();
-                        //var label = line.Substring(26, 8).Trim();
-                        //var mnemonics = line.Substring(36).Trim();  // to the end of the line
+                        var rowNumber = line.Substring(20,5).Trim();
+                        var label = line.Substring(26, 8).Trim();
+                        var mnemonics = line.Substring(36).Trim();  // to the end of the line
                         if (address != "    ")
                         {
                             Int16 addressInt16 = Int16.Parse(address, System.Globalization.NumberStyles.HexNumber); // first two bits always zero
@@ -53,7 +53,10 @@ namespace PicSimulator.Simulator
                             //Int16 rowNumberInt6 = Int16.Parse(rowNumber);
                             Storage.programmMemory[addressInt16] = opcodeInt16;  // store the data in the programmMemory
                         }
-                        ColumnData.Add(new Item(line));
+                        ColumnData.Add(new Item(address, opcode, rowNumber, label, mnemonics));
+                        //ColumnData.Add(new Item(line));
+                        Console.WriteLine(line);
+                        Console.WriteLine(ColumnData);
 
                     }
                 }

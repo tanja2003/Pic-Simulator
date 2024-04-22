@@ -55,7 +55,7 @@ namespace PicSimulator.Simulator
             }
             else if(data == 3)  // literal operations
             {   // 0b11_xxxx_xxxx_xxxx
-
+                selectCommand03(cmd);
             }
             else
             {
@@ -175,13 +175,44 @@ namespace PicSimulator.Simulator
         private bool selectCommand02(int cmd)
         {
             int programmAdress = cmd & 0x7ff; // goto und call   // 0000 0111 1111 1111
+            int literal = cmd & 0xff;
 
             switch ((cmd & 0x0800) >> 11)
             {
                 case 0:
                     return instructions.Goto(programmAdress);
                 case 1:
-                    return instructions.Call(programmAdress); 
+                    return instructions.Call(programmAdress, literal); 
+                default:
+                    throw new Exception("Instruction Error!");
+            }
+        }
+
+        private bool selectCommand03(int cmd)
+        {   // 0b11_xxxx_xxxx_xxxx
+            int literal = cmd & 0xff;
+            int dest = cmd & 0x02;
+            int dest2 = cmd & 0x01;
+            switch((cmd & 0x0C00 ) >> 10)
+            {
+                case 0:
+                    return instructions.Movlw(literal);
+                case 1:
+                    return instructions.Retlw(literal);
+                case 2:
+                    if (dest2 == 0){
+                        return instructions.Iorlw(literal);
+                    }
+                    return instructions.Andlw(literal);
+                case 3:
+                    if(dest == 0)
+                    {
+                        return instructions.Sublw(literal);
+                    }
+                    else
+                    {
+                        return instructions.Addlw(literal);
+                    }
                 default:
                     throw new Exception("Instruction Error!");
             }

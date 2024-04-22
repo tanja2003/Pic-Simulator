@@ -63,11 +63,15 @@ namespace PicSimulator
         public void selectCommand()
         {
             Simulation simulation = new Simulation();
+
+            
             while (!stopButtonClicked)   // falsch wird nie stopbutton angezigt
             {
                 MessageBox.Show("ja");
-                simulation.selectTypeOfCommand(Storage.programmCounter);
-                ProgrammDataViewer.SelectedIndex = Storage.programmCounter;  // zeigt aktuelle zeile, aber auch noch falsch
+                simulation.selectTypeOfCommand(Storage.programmMemory[Storage.programmCounter]);
+                //Item._rowNumber = 
+                //Item.rowNumber();
+                ProgrammDataViewer.SelectedIndex =  Storage.programmCounter;  // zeigt aktuelle zeile, aber auch noch falsch
                 ProgrammDataViewer.ScrollIntoView(ProgrammDataViewer.SelectedItem);
             }
         }
