@@ -1,12 +1,202 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\",
   "Documents": [],
+=======
+  "WorkspaceRootPath": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\andre\\source\\repos\\pic-simulator\\pic-simulator\\picsimulator\\picsimulator\\simulator\\simulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\simulator\\simulation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\andre\\source\\repos\\pic-simulator\\pic-simulator\\picsimulator\\picsimulator\\simulator\\instructions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\simulator\\instructions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\andre\\source\\repos\\pic-simulator\\pic-simulator\\picsimulator\\picsimulator\\simulator\\programmfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\simulator\\programmfile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\andre\\source\\repos\\pic-simulator\\pic-simulator\\picsimulator\\picsimulator\\simulator\\storage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\simulator\\storage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\andre\\source\\repos\\pic-simulator\\pic-simulator\\picsimulator\\picsimulator\\simulator\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\simulator\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\andre\\source\\repos\\pic-simulator\\pic-simulator\\picsimulator\\picsimulator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\andre\\source\\repos\\pic-simulator\\pic-simulator\\picsimulator\\picsimulator\\datamemory\\memorystructure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\datamemory\\memorystructure.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\andre\\source\\repos\\pic-simulator\\pic-simulator\\picsimulator\\picsimulator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\andre\\source\\repos\\pic-simulator\\pic-simulator\\picsimulator\\picsimulator\\simulator\\flags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\simulator\\flags.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|c:\\users\\andre\\source\\repos\\pic-simulator\\pic-simulator\\picsimulator\\picsimulator\\columnsorder\\columns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F26A11A7-3C76-4D46-A91D-74540620A0D3}|PicSimulator\\PicSimulator.csproj|solutionrelative:picsimulator\\columnsorder\\columns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+>>>>>>> 69242de82bd45cec4cd3613e25aca1231ac5a0e1
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
+<<<<<<< HEAD
       "DocumentGroups": []
+=======
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Instructions.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Instructions.cs",
+              "RelativeDocumentMoniker": "PicSimulator\\Simulator\\Instructions.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Instructions.cs*",
+              "RelativeToolTip": "PicSimulator\\Simulator\\Instructions.cs*",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T07:42:11.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Simulation.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Simulation.cs",
+              "RelativeDocumentMoniker": "PicSimulator\\Simulator\\Simulation.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Simulation.cs",
+              "RelativeToolTip": "PicSimulator\\Simulator\\Simulation.cs",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAwwBcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T07:35:19.952Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProgrammFile.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\ProgrammFile.cs",
+              "RelativeDocumentMoniker": "PicSimulator\\Simulator\\ProgrammFile.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\ProgrammFile.cs",
+              "RelativeToolTip": "PicSimulator\\Simulator\\ProgrammFile.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAADMAAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T06:38:02.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Storage.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Storage.cs",
+              "RelativeDocumentMoniker": "PicSimulator\\Simulator\\Storage.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Storage.cs",
+              "RelativeToolTip": "PicSimulator\\Simulator\\Storage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T06:38:11.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Item.cs",
+              "RelativeDocumentMoniker": "PicSimulator\\Simulator\\Item.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Item.cs",
+              "RelativeToolTip": "PicSimulator\\Simulator\\Item.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T06:37:55.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "PicSimulator\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\MainWindow.xaml",
+              "RelativeToolTip": "PicSimulator\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-04-12T07:27:26.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MemoryStructure.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\DataMemory\\MemoryStructure.cs",
+              "RelativeDocumentMoniker": "PicSimulator\\DataMemory\\MemoryStructure.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\DataMemory\\MemoryStructure.cs",
+              "RelativeToolTip": "PicSimulator\\DataMemory\\MemoryStructure.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T06:38:19.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "PicSimulator\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\MainWindow.xaml.cs",
+              "RelativeToolTip": "PicSimulator\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T07:27:08.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Flags.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Flags.cs",
+              "RelativeDocumentMoniker": "PicSimulator\\Simulator\\Flags.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Flags.cs",
+              "RelativeToolTip": "PicSimulator\\Simulator\\Flags.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T07:43:24.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Columns.cs",
+              "DocumentMoniker": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\ColumnsOrder\\Columns.cs",
+              "RelativeDocumentMoniker": "PicSimulator\\ColumnsOrder\\Columns.cs",
+              "ToolTip": "C:\\Users\\andre\\source\\repos\\PIC-Simulator\\Pic-Simulator\\PicSimulator\\PicSimulator\\ColumnsOrder\\Columns.cs",
+              "RelativeToolTip": "PicSimulator\\ColumnsOrder\\Columns.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-14T06:38:24.152Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+>>>>>>> 69242de82bd45cec4cd3613e25aca1231ac5a0e1
     }
   ]
 }
