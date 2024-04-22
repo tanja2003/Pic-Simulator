@@ -53,8 +53,7 @@
               "RelativeToolTip": "..\\..\\Testprogramme\\TPicSim1.LST",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-04-22T11:57:25.146Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T11:57:25.146Z"
             },
             {
               "$type": "Document",
@@ -65,8 +64,7 @@
               "ToolTip": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\MainWindow.xaml",
               "RelativeToolTip": "PicSimulator\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-04-22T11:41:29.098Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T11:41:29.098Z"
             },
             {
               "$type": "Document",
@@ -76,7 +74,7 @@
               "RelativeDocumentMoniker": "PicSimulator\\Simulator\\Storage.cs",
               "ToolTip": "C:\\Users\\tanja\\OneDrive\\Dokumente\\DHBW\\4_Semester\\Pic\\Pic-Simulator\\PicSimulator\\PicSimulator\\Simulator\\Storage.cs",
               "RelativeToolTip": "PicSimulator\\Simulator\\Storage.cs",
-              "ViewState": "AQIAAOYAAAAAAAAAAAAwwPwAAAAiAAAA",
+              "ViewState": "AQIAAOQAAAAAAAAAAAA+wPwAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-22T11:29:05.048Z",
               "EditorCaption": ""
@@ -104,8 +102,7 @@
               "RelativeToolTip": "PicSimulator\\Simulator\\Simulation.cs",
               "ViewState": "AQIAABAAAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T11:28:59.322Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T11:28:59.322Z"
             },
             {
               "$type": "Document",
@@ -117,8 +114,7 @@
               "RelativeToolTip": "PicSimulator\\Simulator\\ProgrammFile.cs",
               "ViewState": "AQIAACIAAAAAAAAAAAApwDEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T11:28:57.693Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T11:28:57.693Z"
             },
             {
               "$type": "Document",
@@ -130,8 +126,7 @@
               "RelativeToolTip": "PicSimulator\\Simulator\\Item.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAuwCYAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T11:28:56.53Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T11:28:56.53Z"
             },
             {
               "$type": "Document",
@@ -143,8 +138,7 @@
               "RelativeToolTip": "PicSimulator\\Simulator\\Instructions.cs",
               "ViewState": "AQIAAFoAAAAAAAAAAAAgwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-22T11:28:52.822Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-22T11:28:52.822Z"
             }
           ]
         }
