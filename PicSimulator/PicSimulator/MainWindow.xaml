@@ -10,7 +10,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="320"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -37,8 +37,8 @@
 
             <Button x:Name="StartButton" Content="Start" Click="StartButton_Click" Grid.Row="0"/>
             <Button x:Name="StopButton" Content="Stop" Grid.Row="1" Click="StopButtonClick"/>
-            <Button Content="Reset" Grid.Row="2"/>
-            <Button Content="Next" Grid.Row="3"/>
+            <Button x:Name="ResetButton" Content="Reset" Grid.Row="2"/>
+            <Button x:Name="NextButton" Content="Next" Grid.Row="3" Click="NextButton_Click"/>
             <Button Content="Continue" Grid.Row="4"/>
         </Grid>
 
@@ -48,13 +48,233 @@
             <ListView x:Name="ProgrammDataViewer" >
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Line}">
+                        <GridViewColumn DisplayMemberBinding="{Binding  Line}">
                             
                         </GridViewColumn>
                     </GridView>
                 </ListView.View>
                 
             </ListView>
+        </Grid>
+
+        <!-- Ports-->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.ColumnSpan="12"  HorizontalAlignment="Center" Grid.Row="0">
+                <TextBlock>Input/Output</TextBlock>
+            </Grid>
+            <!--Port RA0 -->
+            <Grid Grid.Column="0" Grid.Row="1" Margin="0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2"></Border>
+                <TextBlock Grid.Row="0" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">RA0</TextBlock>
+                <CheckBox x:Name="CheckBoxRa0" Grid.Row="1" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBoxRa0_Click"></CheckBox>
+                <Ellipse x:Name="LedRa0" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
+            </Grid>
+
+            <!--Port RA1 -->
+            <Grid Grid.Column="1" Grid.Row="1" Margin="0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2"></Border>
+                <TextBlock Grid.Row="0" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">RA1</TextBlock>
+                <CheckBox x:Name="CheckBoxRa1" Grid.Row="1" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBoxRa1_Click"></CheckBox>
+                <Ellipse x:Name="LedRa1" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
+            </Grid>
+
+            <!--Port RA2 -->
+            <Grid Grid.Column="2" Grid.Row="1" Margin="0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2"></Border>
+                <TextBlock Grid.Row="0" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">RA2</TextBlock>
+                <CheckBox x:Name="CheckBoxRa2" Grid.Row="1" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBoxRa2_Click"></CheckBox>
+                <Ellipse x:Name="LedRa2" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
+            </Grid>
+
+            <!--Port RA3 -->
+            <Grid Grid.Column="3" Grid.Row="1" Margin="0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2"></Border>
+                <TextBlock Grid.Row="0" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">RA3</TextBlock>
+                <CheckBox x:Name="CheckBoxRa3" Grid.Row="1" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBoxRa3_Click"></CheckBox>
+                <Ellipse x:Name="LedRa3" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
+            </Grid>
+
+            <!--Port RA4 -->
+            <Grid Grid.Column="4" Grid.Row="1" Margin="0,2,2,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2"></Border>
+                <TextBlock Grid.Row="0" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">RA4</TextBlock>
+                <CheckBox x:Name="CheckBoxRa4" Grid.Row="1" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBoxRa4_Click"></CheckBox>
+                <Ellipse x:Name="LedRa4" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
+            </Grid>
+
+            <!--Port RB0 -->
+            <Grid Grid.Column="5" Grid.Row="1" Margin="2,2,0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2"></Border>
+                <TextBlock Grid.Row="0" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">RB0</TextBlock>
+                <CheckBox x:Name="CheckBoxRb0" Grid.Row="1" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBoxRb0_Click"></CheckBox>
+                <Ellipse x:Name="LedRb0" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
+            </Grid>
+
+            <!--Port RB1 -->
+            <Grid Grid.Column="6" Grid.Row="1" Margin="0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2"></Border>
+                <TextBlock Grid.Row="0" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">RB1</TextBlock>
+                <CheckBox x:Name="CheckBoxRb1" Grid.Row="1" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBoxRb1_Click"></CheckBox>
+                <Ellipse x:Name="LedRb1" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
+            </Grid>
+
+            <!--Port RB2 -->
+            <Grid Grid.Column="7" Grid.Row="1" Margin="2,2,0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2"></Border>
+                <TextBlock Grid.Row="0" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">RB2</TextBlock>
+                <CheckBox x:Name="CheckBoxRb2" Grid.Row="1" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBoxRb2_Click"></CheckBox>
+                <Ellipse x:Name="LedRb2" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
+            </Grid>
+
+            <!--Port RB3 -->
+            <Grid Grid.Column="8" Grid.Row="1" Margin="0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2"></Border>
+                <TextBlock Grid.Row="0" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">RB3</TextBlock>
+                <CheckBox x:Name="CheckBoxRb3" Grid.Row="1" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBoxRb3_Click"></CheckBox>
+                <Ellipse x:Name="LedRb8" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
+            </Grid>
+
+            <!--Port RB4 -->
+            <Grid Grid.Column="9" Grid.Row="1" Margin="0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2"></Border>
+                <TextBlock Grid.Row="0" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">RB4</TextBlock>
+                <CheckBox x:Name="CheckBoxRb4" Grid.Row="1" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBoxRb4_Click"></CheckBox>
+                <Ellipse x:Name="LedRb4" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
+            </Grid>
+
+            <!--Port RB5 -->
+            <Grid Grid.Column="10" Grid.Row="1" Margin="0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2"></Border>
+                <TextBlock Grid.Row="0" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">RB5</TextBlock>
+                <CheckBox x:Name="CheckBoxRb5" Grid.Row="1" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBoxRb5_Click"></CheckBox>
+                <Ellipse x:Name="LedRb5" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
+            </Grid>
+
+            <!--Port RB6 -->
+            <Grid Grid.Column="11" Grid.Row="1" Margin="0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2"></Border>
+                <TextBlock Grid.Row="0" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">RB6</TextBlock>
+                <CheckBox x:Name="CheckBoxRb6" Grid.Row="1" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBoxRb6_Click"></CheckBox>
+                <Ellipse x:Name="LedRb6" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
+            </Grid>
+
+            <!--Port RB7 -->
+            <Grid Grid.Column="12" Grid.Row="1" Margin="0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="0"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="1"></Border>
+                <Border BorderThickness="1" BorderBrush="Black" Grid.Row="2"></Border>
+                <TextBlock Grid.Row="0" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Center">RB7</TextBlock>
+                <CheckBox x:Name="CheckBoxRb7" Grid.Row="1" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CheckBoxRb7_Click"></CheckBox>
+                <Ellipse x:Name="LedRb7" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
+            </Grid>
         </Grid>
     </Grid>
     

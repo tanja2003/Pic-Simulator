@@ -20,16 +20,16 @@ namespace PicSimulator.Simulator
     private string _mnemonics;
     private bool _isExecuted;
 
-    public Item(string address, string opcode, string rowNumber, string label, string mnemonics)
-    {
-        _address = address;
-        _opcode = opcode;
-        _rowNumber = rowNumber;
-        _label = label;
-        _mnemonics = mnemonics;
-        string distance = "    ";
-        _line = address + distance + opcode + distance + rowNumber + distance + label + distance + mnemonics;
-    }
+    //public Item(string address, string opcode, string rowNumber, string label, string mnemonics)
+    //{
+    //    _address = address;
+    //    _opcode = opcode;
+    //    _rowNumber = rowNumber;
+    //    _label = label;
+    //    _mnemonics = mnemonics;
+    //    string distance = "    ";
+    //    _line = address + distance + opcode + distance + rowNumber + distance + label + distance + mnemonics;
+    //}
 
         
     public Item(string line) 
@@ -47,8 +47,7 @@ namespace PicSimulator.Simulator
             set
             {
                 _line = value;
-
-                RaisePropertyChanged(nameof(RowNumber));
+;
                 RaisePropertyChanged(nameof(Line));
             }
         }
@@ -83,11 +82,6 @@ namespace PicSimulator.Simulator
         set { _mnemonics = value; RaisePropertyChanged(nameof(Mnemonics)); }
     }
 
-    public bool IsExecuted
-    {
-        get { return _isExecuted; }
-        set { _isExecuted = value; RaisePropertyChanged(nameof(IsExecuted)); }
-    }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void RaisePropertyChanged(string propertyName)

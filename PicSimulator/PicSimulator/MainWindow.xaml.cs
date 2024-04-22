@@ -30,8 +30,6 @@ namespace PicSimulator
             InitializeComponent();
             Storage storage = new Storage();
 
-            //Simulation simulation = new Simulation();
-
         }
 
         #region Menu
@@ -67,7 +65,6 @@ namespace PicSimulator
             
             while (!stopButtonClicked)   // falsch wird nie stopbutton angezigt
             {
-                MessageBox.Show("ja");
                 simulation.selectTypeOfCommand(Storage.programmMemory[Storage.programmCounter]);
                 //Item._rowNumber = 
                 //Item.rowNumber();
@@ -89,8 +86,245 @@ namespace PicSimulator
         private void StopButtonClick(object sender, RoutedEventArgs e)
         {
             stopButtonClicked = true;
-            MessageBox.Show("nein");
         }
-        
+
+        private void NextButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void CheckBoxRa0_Click(object sender, RoutedEventArgs e)
+        {
+            if(CheckBoxRa0 != null)
+            {
+                var checkBox = CheckBoxRa0.IsChecked;
+                bool value;
+                if(checkBox == null)
+                {
+                    value = false;
+                }
+                else
+                {
+                    value = (bool)checkBox;
+                }
+                Storage.SetInputRa(0, value);
+            }
+        }
+
+        private void CheckBoxRa1_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxRa1 != null)
+            {
+                var checkBox = CheckBoxRa1.IsChecked;
+                bool value;
+                if (checkBox == null)
+                {
+                    value = false;
+                }
+                else
+                {
+                    value = (bool)checkBox;
+                }
+                Storage.SetInputRa(1, value);
+            }
+        }
+
+        private void CheckBoxRa2_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxRa2 != null)
+            {
+                var checkBox = CheckBoxRa2.IsChecked;
+                bool value;
+                if (checkBox == null)
+                {
+                    value = false;
+                }
+                else
+                {
+                    value = (bool)checkBox;
+                }
+                Storage.SetInputRa(2, value);
+            }
+        }
+
+        private void CheckBoxRa3_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxRa3 != null)
+            {
+                var checkBox = CheckBoxRa0.IsChecked;
+                bool value;
+                if (checkBox == null)
+                {
+                    value = false;
+                }
+                else
+                {
+                    value = (bool)checkBox;
+                }
+                Storage.SetInputRa(3, value);
+            }
+        }
+
+        private void CheckBoxRa4_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxRa4 != null)
+            {
+                var checkBox = CheckBoxRa4.IsChecked;
+                bool value;
+                if (checkBox == null)
+                {
+                    value = false;
+                }
+                else
+                {
+                    value = (bool)checkBox;
+                }
+                Storage.SetInputRa(4, value);
+            }
+        }
+
+        private void CheckBoxRb0_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxRb0 != null)
+            {
+                var checkBox = CheckBoxRb0.IsChecked;
+                bool value;
+                if (checkBox == null)
+                {
+                    value = false;
+                }
+                else
+                {
+                    value = (bool)checkBox;
+                }
+                Storage.SetInputRb(0, value);
+            }
+        }
+
+        private void CheckBoxRb1_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxRb1 != null)
+            {
+                var checkBox = CheckBoxRb1.IsChecked;
+                bool value;
+                if (checkBox == null)
+                {
+                    value = false;
+                }
+                else
+                {
+                    value = (bool)checkBox;
+                }
+                Storage.SetInputRb(1, value);
+            }
+        }
+
+        private void CheckBoxRb2_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxRb2 != null)
+            {
+                var checkBox = CheckBoxRb2.IsChecked;
+                bool value;
+                if (checkBox == null)
+                {
+                    value = false;
+                }
+                else
+                {
+                    value = (bool)checkBox;
+                }
+                Storage.SetInputRb(2, value);
+            }
+        }
+
+        private void CheckBoxRb3_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxRb3 != null)
+            {
+                var checkBox = CheckBoxRb3.IsChecked;
+                bool value;
+                if (checkBox == null)
+                {
+                    value = false;
+                }
+                else
+                {
+                    value = (bool)checkBox;
+                }
+                Storage.SetInputRb(3, value);
+            }
+        }
+
+        private void CheckBoxRb4_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxRb4 != null)
+            {
+                var checkBox = CheckBoxRb4.IsChecked;
+                bool value;
+                if (checkBox == null)
+                {
+                    value = false;
+                }
+                else
+                {
+                    value = (bool)checkBox;
+                }
+                Storage.SetInputRb(4, value);
+            }
+        }
+
+        private void CheckBoxRb5_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxRb5 != null)
+            {
+                var checkBox = CheckBoxRb5.IsChecked;
+                bool value;
+                if (checkBox == null)
+                {
+                    value = false;
+                }
+                else
+                {
+                    value = (bool)checkBox;
+                }
+                Storage.SetInputRb(5, value);
+            }
+        }
+
+        private void CheckBoxRb6_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxRb6 != null)
+            {
+                var checkBox = CheckBoxRb6.IsChecked;
+                bool value;
+                if (checkBox == null)
+                {
+                    value = false;  // if not checked
+                }
+                else
+                {
+                    value = (bool)checkBox;
+                }
+                Storage.SetInputRb(6, value);
+            }
+        }
+
+        private void CheckBoxRb7_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckBoxRb7 != null)
+            {
+                var checkBox = CheckBoxRb7.IsChecked;
+                bool value;
+                if (checkBox == null)
+                {
+                    value = false;
+                }
+                else
+                {
+                    value = (bool)checkBox;
+                }
+                Storage.SetInputRb(7, value);
+            }
+        }
     }
 }

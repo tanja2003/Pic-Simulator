@@ -30,7 +30,7 @@ namespace PicSimulator.Simulator
         private void SetInitalizeStateDataMemory()
         {
             programmCounter = 0;
-            for(int i = 0; i <= 255; i++)
+            for (int i = 0; i <= 255; i++)
             {
                 dataMemory[i] = 0;
             }
@@ -55,7 +55,7 @@ namespace PicSimulator.Simulator
         // Bei einem Befehl mit PCL als Destination: die unteren 5 Bits vom PCLATh werden in PC geladen
         // und das ERgbnis der ALu in das PCL
         // Bei Goto oder Call: unterne 11 Bits sind der Befehl, oberen 2 Bits sind PCLATH(<4:3>)
-        
+
         public static int pclath = 0;
 
         // Fetch cycle behaviour of the Programm Counter
@@ -67,7 +67,7 @@ namespace PicSimulator.Simulator
 
             if (programmCounter == 2048)
             {   // start at the begining again
-                programmCounter = 0; 
+                programmCounter = 0;
             }
             dataMemory[(int)MemoryStructur.PCL1] = (byte)(programmCounter & 0xFF);  // update PCL 
 
@@ -76,7 +76,7 @@ namespace PicSimulator.Simulator
 
         public static void SetProgrammCounter(int value)
         {
-            if(value < 2047)
+            if (value < 2047)
             {
                 programmCounter = value;
                 dataMemory[2] = programmCounter;
@@ -149,7 +149,7 @@ namespace PicSimulator.Simulator
         /// returns content of the adress in the dataMemory
         public static int GetRegisterData(int adress)
         {
-            if(adress == 0x00)  // INDR --> Uses contents of FSR to address data memory (not a physical register)
+            if (adress == 0x00)  // INDR --> Uses contents of FSR to address data memory (not a physical register)
             {
                 adress = dataMemory[0x04];
                 dataMemory[0x00] = dataMemory[adress];
@@ -158,11 +158,11 @@ namespace PicSimulator.Simulator
 
             // on which bank?
             int rp0 = (dataMemory[3] & 0x20) >> 5;  // 0010 0000
-            if(rp0 == 0)
+            if (rp0 == 0)
             {
                 return dataMemory[adress];
             }
-            else if(rp0 == 1)
+            else if (rp0 == 1)
             {
                 return dataMemory[adress + 0x80];  // other 128 bytes
             }
@@ -232,6 +232,39 @@ namespace PicSimulator.Simulator
         }
 
 
+        #endregion
+
+        #region  Input
+        public static void SetInputRa(int input, bool value = true)
+        {
+            int previousValuePortA = dataMemory[5];  // 0000 000b
+
+            if (value)
+            {
+                dataMemory[5] = (previousValuePortA | (1 << input));  // 0000 0b0b  <- both are inputs now
+            }
+            else
+            {
+                dataMemory[5] = (previousValuePortA & ~(1 << input)); // 1111b1b
+            }
+        }
+
+        // 0000 0001
+        // 0000 0100 --> 1111 1010
+
+        public static void SetInputRb(int input, bool value = true)
+        {
+            int previousValuePortB = dataMemory[6];
+
+            if (value)
+            {
+                dataMemory[6] = (previousValuePortB | (1 << input));
+            }
+            else
+            {
+                dataMemory[6] = (previousValuePortB & ~(1 << input));
+            }
+        }
         #endregion
 
         // Initalisieren
