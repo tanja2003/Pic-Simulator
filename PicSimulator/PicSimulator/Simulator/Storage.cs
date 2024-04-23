@@ -139,7 +139,14 @@ namespace PicSimulator.Simulator
         public static void DeleteTopOfStack()
         {
             stack[stackpointer] = 0;
-            stackpointer--;
+            if(stackpointer == 0)
+            {
+                stackpointer = 7;
+            }
+            else
+            {
+                stackpointer--;
+            }
         }
         #endregion
 
@@ -200,7 +207,10 @@ namespace PicSimulator.Simulator
         #endregion
 
         #region Timer, Watchdog and Prescaler
-
+        public static int[] timer = new int[256];
+        private double watchdogTimer = 0.0;  // 18.0ns(Alarms)
+        public bool watchdogSelected = false;
+        public bool clrWdtFlag = false;
         public static void IncreaseTimer()
         {
 
@@ -235,35 +245,44 @@ namespace PicSimulator.Simulator
         #endregion
 
         #region  Input
-        public static void SetInputRa(int input, bool value = true)
+        public static void SetInputRa(int inputRa, bool isInput = true)
         {
-            int previousValuePortA = dataMemory[5];  // 0000 000b
-
-            if (value)
+            if (isInput)
             {
-                dataMemory[5] = (previousValuePortA | (1 << input));  // 0000 0b0b  <- both are inputs now
+                dataMemory[5] |= (1 << inputRa);  // 0000 0b0b  <- both are inputs now
             }
             else
             {
-                dataMemory[5] = (previousValuePortA & ~(1 << input)); // 1111b1b
+                dataMemory[5] &= ~(1 << inputRa); // just the bit on position InputRa is set to 0
             }
         }
 
         // 0000 0001
         // 0000 0100 --> 1111 1010
 
-        public static void SetInputRb(int input, bool value = true)
+        public static void SetInputRb(int inputRb, bool isInput = true)
         {
             int previousValuePortB = dataMemory[6];
 
-            if (value)
+            if (isInput)
             {
-                dataMemory[6] = (previousValuePortB | (1 << input));
+                dataMemory[6] |= (1 << inputRb);
             }
             else
             {
-                dataMemory[6] = (previousValuePortB & ~(1 << input));
+                dataMemory[6] &= ~(1 << inputRb);
             }
+        }
+        #endregion
+
+        #region ProgrammStep
+
+        /// <summary>
+        /// Go to the next Instruction
+        public static void DoProgrammStep()
+        {
+            IncrementProgrammCounter();
+            // TODO
         }
         #endregion
 

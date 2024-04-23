@@ -17,6 +17,7 @@ using PicSimulator.Simulator;
 using PicSimulator.ColumnsOrder;
 using System.Collections.ObjectModel;
 using System.Security.Cryptography.X509Certificates;
+using System.ComponentModel;
 
 namespace PicSimulator
 {
@@ -27,10 +28,12 @@ namespace PicSimulator
     {
         public MainWindow()
         {
+            DataContext = this;
             InitializeComponent();
-            Storage storage = new Storage();
 
         }
+
+        private static bool _run = false;
 
         #region Menu
 
@@ -50,6 +53,7 @@ namespace PicSimulator
                 ProgrammFile programmFile = new ProgrammFile(fileName);
                 ProgrammDataViewer.ItemsSource = programmFile.ColumnData;
                 ProgrammDataViewer.Items.Refresh();
+                Simulation.dataLoaded = true;
             }
         }
 
@@ -62,30 +66,53 @@ namespace PicSimulator
         {
             Simulation simulation = new Simulation();
 
+
+            simulation.selectTypeOfCommand(Storage.programmMemory[Storage.programmCounter]);
+            //Item._rowNumber = 
+            //Item.rowNumber();
+            //ProgrammDataViewer.SelectedIndex =  Storage.programmCounter;  // zeigt aktuelle zeile, aber auch noch falsch
+            //ProgrammDataViewer.ScrollIntoView(ProgrammDataViewer.SelectedItem);
             
-            while (!stopButtonClicked)   // falsch wird nie stopbutton angezigt
-            {
-                simulation.selectTypeOfCommand(Storage.programmMemory[Storage.programmCounter]);
-                //Item._rowNumber = 
-                //Item.rowNumber();
-                ProgrammDataViewer.SelectedIndex =  Storage.programmCounter;  // zeigt aktuelle zeile, aber auch noch falsch
-                ProgrammDataViewer.ScrollIntoView(ProgrammDataViewer.SelectedItem);
-            }
         }
+        private delegate void UpdateUi();
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            // check if File is loadad
-            stopButtonClicked = false;
+            // check if File is loadad and programm is not in runtime
+            if(Simulation.dataLoaded && _run == false)
+            {
+                _run = true;
+                new Thread(() =>
+                {
+                    while(_run)
+                    {
+                        selectCommand();
+                        Dispatcher.BeginInvoke(new UpdateUi(RefreshData));
+                        // dispatcher
+                        // Programmsteps
+                        
+                        _run = false;
+                    }
+                }).Start();
+            }
 
-            selectCommand();
+
+            
 
         }
 
+        #region Refresh
 
-        public bool stopButtonClicked = false;
+        public void RefreshData()
+        {
+            RunTime = SystemOperations.runTimeCounter;
+            RunTime = 5;
+            //ShowRuntime
+        }
+        #endregion
+
         private void StopButtonClick(object sender, RoutedEventArgs e)
         {
-            stopButtonClicked = true;
+            
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
@@ -93,6 +120,7 @@ namespace PicSimulator
             
         }
 
+        #region Input/Output
         private void CheckBoxRa0_Click(object sender, RoutedEventArgs e)
         {
             if(CheckBoxRa0 != null)
@@ -326,5 +354,30 @@ namespace PicSimulator
                 Storage.SetInputRb(7, value);
             }
         }
+        #endregion
+
+        #region Settings
+        public double RunTime
+        {
+            get { return SystemOperations.runTimeCounter; }
+            set
+            {
+                if (value != SystemOperations.runTimeCounter)
+                {
+                    SystemOperations.runTimeCounter = value;
+                    OnPropertyChanged(nameof(RunTime));
+                }
+            }
+        }
+        #endregion
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }

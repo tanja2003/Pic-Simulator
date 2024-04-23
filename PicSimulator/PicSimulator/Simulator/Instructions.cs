@@ -682,32 +682,7 @@ namespace PicSimulator.Simulator
         }
         #endregion
 
-        #region Runtime
-        private int runTimeCounter = 0;
-        private int quarzFrequency = 4; // in Mhz
-        private int programmStepTime = 0;
-        #endregion
+        
 
-        #region Watchdog
-        private double watchdogTimer = 0.0;  // 18.0ns(Alarms)
-        public bool watchdogSelected = false;
-        public bool clrWdtFlag = false;
-
-
-        public void ResetWatchdog()
-        {
-
-        }
-
-        public void IncrementWatchdog(bool select)
-        {
-
-        }
-
-        public void GetWatchdogTime()
-        {
-
-        }
-        #endregion
     }
 }

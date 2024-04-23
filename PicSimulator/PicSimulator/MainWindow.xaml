@@ -276,6 +276,23 @@
                 <Ellipse x:Name="LedRb7" Grid.Row="2" Fill="Red" Height="15" Width="15"></Ellipse>
             </Grid>
         </Grid>
+        <Grid Grid.Row="1" Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0">Runtime:</TextBlock>
+            <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1"></Border>
+            <TextBlock Grid.Row="0" Grid.Column="1"  x:Name="ShowRuntime" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding RunTime}"></TextBlock>
+
+            <TextBlock Grid.Row="0" Grid.Column="2">µ</TextBlock>
+        </Grid>
     </Grid>
     
 </Window>
