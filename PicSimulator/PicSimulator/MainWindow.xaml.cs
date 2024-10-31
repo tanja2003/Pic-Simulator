@@ -86,7 +86,8 @@ namespace PicSimulator
                     while(_run)
                     {
                         selectCommand();
-                        Dispatcher.BeginInvoke(new UpdateUi(RefreshData));
+                        Dispatcher.BeginInvoke(new UpdateUi(RefreshData), DispatcherPriority.Render, new object[] {});
+                        Thread.Sleep(75);
                         // dispatcher
                         // Programmsteps
                         
